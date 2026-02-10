@@ -126,7 +126,7 @@ jq -c 'select(.property == "length" and .system == "Imperial")' json/units_of_me
 
 ## Data Sources
 
-- **SI Brochure** (9th Edition, 2019) -- Bureau International des Poids et Mesures (BIPM). Source for SI base units, derived units, and non-SI units accepted for use with the SI.
+- **[SI Brochure](https://www.bipm.org/en/publications/si-brochure)** (9th Edition, 2019) -- Bureau International des Poids et Mesures (BIPM). Source for SI base units, derived units, and non-SI units accepted for use with the SI.
 - **[uom](https://github.com/iliekturtles/uom)** -- Units of Measurement Rust crate by Mike Boutin, licensed under MIT / Apache-2.0. Source for conversion factors, plurals, and extended unit coverage across multiple measurement systems. See [THIRD-PARTY-LICENSES](THIRD-PARTY-LICENSES) for the full license text.
 
 ## License
