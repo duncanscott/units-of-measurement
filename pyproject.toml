@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "units-of-measurement"
-version = "1.0.0"
+version = "1.1.0"
 description = "Comprehensive units of measurement dataset — 2,959 units, 121 physical quantities, conversion factors, 11 measurement systems"
 readme = "README.md"
 license = "MIT"

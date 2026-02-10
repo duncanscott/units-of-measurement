@@ -3,7 +3,7 @@
 import json
 from pathlib import Path
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 _PKG_DIR = Path(__file__).resolve().parent
 _DATA_DIR = _PKG_DIR / "data"
