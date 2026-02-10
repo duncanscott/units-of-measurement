@@ -2,7 +2,7 @@
 #
 # Runs lightweight structural checks on the canonical dataset:
 #   * valid JSON Lines with a trailing newline
-#   * expected record count (2,959)
+#   * unique (unit, property) pairs
 #   * required fields (unit, canonical_unit, symbol, property, quantity,
 #     dimension, conversion_factor, reference_unit, system)
 #   * well-formed optional fields (prefix, plural, conversion_offset,
@@ -19,12 +19,12 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
+from collections import Counter
 from typing import Dict, Iterable, Tuple
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DATASET_PATH = REPO_ROOT / "jsonl" / "units_of_measurement.jsonl"
-EXPECTED_COUNT = 2959
 
 MEASUREMENT_SYSTEMS = {
     "SI",
@@ -100,8 +100,12 @@ def _reject_duplicate_keys(pairs: Iterable[Tuple[str, object]]) -> Dict[str, obj
 def validate_dataset(records: list[dict]) -> list[str]:
     errors: list[str] = []
 
-    if len(records) != EXPECTED_COUNT:
-        errors.append(f"expected {EXPECTED_COUNT} records, found {len(records)}")
+    pair_counts = Counter((r.get("unit"), r.get("property")) for r in records)
+    for (unit, prop), count in pair_counts.items():
+        if count > 1:
+            errors.append(
+                f"duplicate (unit, property) pair: (\"{unit}\", \"{prop}\") appears {count} times"
+            )
 
     for index, record in enumerate(records, start=1):
         missing = [field for field in REQUIRED_FIELDS if field not in record]
@@ -215,7 +219,7 @@ def main() -> int:
             print(f"  - {issue}")
         return 1
 
-    print("jsonl/units_of_measurement.jsonl looks good.")
+    print(f"jsonl/units_of_measurement.jsonl looks good ({len(records)} records).")
     return 0
 
 

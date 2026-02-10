@@ -1,4 +1,4 @@
-"""Units of measurement dataset — 2,959 units, 121 physical quantities, 11 measurement systems."""
+"""Units of measurement dataset — 121 physical quantities, 11 measurement systems."""
 
 import json
 from pathlib import Path

@@ -6,7 +6,7 @@ A comprehensive collection of units of measurement covering 121 physical quantit
 
 The `jsonl/` directory contains three JSONL files (one JSON object per line). The `json/` directory contains the same datasets as JSON arrays.
 
-### `units_of_measurement.jsonl` (2,959 entries)
+### `units_of_measurement.jsonl`
 
 The **comprehensive, merged dataset**. This is the file most users will want. It combines the SI and UOM datasets below into a single superset with a unified schema covering all fields.
 
@@ -28,13 +28,15 @@ The **comprehensive, merged dataset**. This is the file most users will want. It
 | `alternate_unit` | array of strings | Alternate names for the unit (present only where applicable, e.g., "metre" for "meter") |
 | `system` | string | Measurement system (see below) |
 
-### `si_units.jsonl` (812 entries)
+The combination of `unit` and `property` is unique across all entries.
+
+### `si_units.jsonl`
 
 SI base units, SI derived units with special names, and non-SI units accepted for use with the SI (per the [SI Brochure, 9th Edition](https://www.bipm.org/en/publications/si-brochure)). Each unit includes full SI prefix expansions (all 24 prefixes from quecto through quetta). Uses US English spellings ("meter", "liter").
 
 **Fields:** `unit`, `prefix`, `symbol`, `property`, `alternate_unit` (optional), `system`
 
-### `uom.jsonl` (2,660 entries)
+### `uom.jsonl`
 
 Units parsed from the Rust [uom](https://github.com/iliekturtles/uom) crate by Mike Boutin. Covers 117 physical quantities across multiple measurement systems, with conversion factors relative to the SI coherent unit for each quantity.
 
@@ -98,7 +100,7 @@ pip install units-of-measurement   # Python
 ```python
 from units_of_measurement import load
 
-units = load()  # 2,959 entries from the merged dataset
+units = load()  # all entries from the merged dataset
 
 # Find all length units
 length_units = [u for u in units if u["property"] == "length"]
@@ -117,8 +119,8 @@ accel["quantity"] == accel["property"]  # True
 systems = sorted(set(u["system"] for u in units))
 
 # Load a specific dataset
-si = load("si_units")   # 812 SI entries
-uom = load("uom")       # 2,660 uom entries
+si = load("si_units")   # SI entries
+uom = load("uom")       # uom entries
 ```
 
 ### JavaScript
@@ -127,7 +129,7 @@ uom = load("uom")       # 2,660 uom entries
 const { load } = require('units-of-measurement');
 // or: import { load } from 'units-of-measurement';
 
-const units = load(); // 2,959 entries from the merged dataset
+const units = load(); // all entries from the merged dataset
 
 // Find all mass units
 const massUnits = units.filter(u => u.property === 'mass');

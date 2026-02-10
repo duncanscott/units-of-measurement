@@ -35532,23 +35532,6 @@
     "unit": "pound-force per square inch",
     "canonical_unit": "pound-force/inch²",
     "prefix": null,
-    "symbol": "lbf/in²",
-    "plural": "pounds-force per square inch",
-    "property": "pressure",
-    "quantity": "pressure",
-    "dimension": {
-      "M": 1,
-      "L": -1,
-      "T": -2
-    },
-    "conversion_factor": 6894.757889515779,
-    "reference_unit": "pascal",
-    "system": "Imperial"
-  },
-  {
-    "unit": "pound-force per square inch",
-    "canonical_unit": "pound-force/inch²",
-    "prefix": null,
     "symbol": "psi",
     "plural": "pounds-force per square inch",
     "property": "pressure",
@@ -35558,7 +35541,7 @@
       "L": -1,
       "T": -2
     },
-    "conversion_factor": 6894.757,
+    "conversion_factor": 6894.757889515779,
     "reference_unit": "pascal",
     "system": "Imperial"
   },
