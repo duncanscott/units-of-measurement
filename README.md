@@ -63,6 +63,67 @@ Each entry's `conversion_factor` is the multiplier to convert one unit to the `r
 
 For temperature units with a `conversion_offset`, the conversion to the reference unit (kelvin) is: `value_in_kelvin = value * conversion_factor + conversion_offset`.
 
+## Usage
+
+### Install
+
+```sh
+npm install units-of-measurement   # Node.js
+pip install units-of-measurement   # Python
+```
+
+### Python
+
+```python
+from units_of_measurement import load
+
+units = load()  # 2,959 entries from the merged dataset
+
+# Find all length units
+length_units = [u for u in units if u["property"] == "length"]
+
+# Convert 5 miles to meters
+mile = next(u for u in units if u["unit"] == "mile")
+meters = 5 * mile["conversion_factor"]  # 8046.72
+
+# List all measurement systems
+systems = sorted(set(u["system"] for u in units))
+
+# Load a specific dataset
+si = load("si_units")   # 812 SI entries
+uom = load("uom")       # 2,660 uom entries
+```
+
+### JavaScript
+
+```js
+const { load } = require('units-of-measurement');
+// or: import { load } from 'units-of-measurement';
+
+const units = load(); // 2,959 entries from the merged dataset
+
+// Find all mass units
+const massUnits = units.filter(u => u.property === 'mass');
+
+// Convert 10 pounds to kilograms
+const pound = units.find(u => u.unit === 'pound' && u.property === 'mass');
+const kg = 10 * pound.conversion_factor; // 4.535924
+
+// Load a specific dataset
+const si = load('si_units');
+const uom = load('uom');
+```
+
+### Raw JSONL (no package needed)
+
+```sh
+# Download the dataset directly
+curl -LO https://raw.githubusercontent.com/duncanscott/units-of-measurement/main/json/units_of_measurement.jsonl
+
+# Query with jq — all Imperial length units
+jq -c 'select(.property == "length" and .system == "Imperial")' json/units_of_measurement.jsonl
+```
+
 ## Data Sources
 
 - **SI Brochure** (9th Edition, 2019) -- Bureau International des Poids et Mesures (BIPM). Source for SI base units, derived units, and non-SI units accepted for use with the SI.
