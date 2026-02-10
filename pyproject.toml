@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "units-of-measurement"
+version = "1.0.0"
+description = "Comprehensive units of measurement dataset — 2,959 units, 121 physical quantities, conversion factors, 11 measurement systems"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [
+    { name = "Duncan Scott" },
+]
+keywords = ["units", "measurement", "conversion", "si-units", "imperial", "metric", "physics", "dataset"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+
+[project.urls]
+Homepage = "https://github.com/duncanscott/units-of-measurement"
+Repository = "https://github.com/duncanscott/units-of-measurement"
+
+[tool.hatch.build.targets.wheel]
+packages = ["units_of_measurement"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"json" = "units_of_measurement/data"
+
+[tool.hatch.build.targets.sdist]
+include = ["units_of_measurement/", "json/", "LICENSE", "README.md", "pyproject.toml"]

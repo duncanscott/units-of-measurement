@@ -1,0 +1,36 @@
+{
+  "name": "units-of-measurement",
+  "version": "1.0.0",
+  "description": "Comprehensive units of measurement dataset — 2,959 units, 121 physical quantities, conversion factors, 11 measurement systems",
+  "main": "index.js",
+  "module": "index.mjs",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "import": "./index.mjs"
+    }
+  },
+  "files": [
+    "json/",
+    "index.js",
+    "index.mjs"
+  ],
+  "keywords": [
+    "units",
+    "measurement",
+    "conversion",
+    "si-units",
+    "imperial",
+    "metric",
+    "physics",
+    "dataset",
+    "jsonl"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duncanscott/units-of-measurement.git"
+  },
+  "author": "Duncan Scott",
+  "license": "MIT",
+  "homepage": "https://github.com/duncanscott/units-of-measurement"
+}
