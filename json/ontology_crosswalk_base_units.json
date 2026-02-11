@@ -1,0 +1,164 @@
+[
+  {
+    "unit": "meter",
+    "dataset_properties": [
+      "length"
+    ],
+    "om": {
+      "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/metre",
+      "label": "metre",
+      "definition": null
+    },
+    "uo": {
+      "uri": "http://purl.obolibrary.org/obo/UO_0000008",
+      "curie": "UO:0000008",
+      "label": "meter",
+      "definition": "A length unit which is equal to the length of the path traveled by light in vacuum during a time interval of 1/299 792 458 of a second."
+    },
+    "ucum_code": "m",
+    "sources": {
+      "bioportal_uo_csv": "resource/bioportal/units_of_measure_ontology/UO.csv",
+      "om_ucum_ttl": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2-ucum.ttl",
+      "om_rdf": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2.0.rdf"
+    }
+  },
+  {
+    "unit": "kilogram",
+    "dataset_properties": [
+      "mass"
+    ],
+    "om": {
+      "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/kilogram",
+      "label": "kilogram",
+      "definition": null
+    },
+    "uo": {
+      "uri": "http://purl.obolibrary.org/obo/UO_0000009",
+      "curie": "UO:0000009",
+      "label": "kilogram",
+      "definition": "A mass unit which is equal to the mass of the International Prototype Kilogram kept by the BIPM at Svres, France."
+    },
+    "ucum_code": "kg",
+    "sources": {
+      "bioportal_uo_csv": "resource/bioportal/units_of_measure_ontology/UO.csv",
+      "om_ucum_ttl": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2-ucum.ttl",
+      "om_rdf": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2.0.rdf"
+    }
+  },
+  {
+    "unit": "second",
+    "dataset_properties": [
+      "time"
+    ],
+    "om": {
+      "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time",
+      "label": "second Time",
+      "definition": null
+    },
+    "uo": {
+      "uri": "http://purl.obolibrary.org/obo/UO_0000010",
+      "curie": "UO:0000010",
+      "label": "second",
+      "definition": "A time unit which is equal to the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom."
+    },
+    "ucum_code": "s",
+    "sources": {
+      "bioportal_uo_csv": "resource/bioportal/units_of_measure_ontology/UO.csv",
+      "om_ucum_ttl": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2-ucum.ttl",
+      "om_rdf": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2.0.rdf"
+    }
+  },
+  {
+    "unit": "ampere",
+    "dataset_properties": [
+      "electric current"
+    ],
+    "om": {
+      "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/ampere",
+      "label": "ampere",
+      "definition": null
+    },
+    "uo": {
+      "uri": "http://purl.obolibrary.org/obo/UO_0000011",
+      "curie": "UO:0000011",
+      "label": "ampere",
+      "definition": "An electric current unit which is equal to the constant current which, if maintained in two straight parallel conductors of infinite length, of negligible circular cross-section, and placed 1 m apart in vacuum, would produce between these conductors a force equal to 2 x 10^[-7] newton per meter of length."
+    },
+    "ucum_code": "A",
+    "sources": {
+      "bioportal_uo_csv": "resource/bioportal/units_of_measure_ontology/UO.csv",
+      "om_ucum_ttl": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2-ucum.ttl",
+      "om_rdf": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2.0.rdf"
+    }
+  },
+  {
+    "unit": "kelvin",
+    "dataset_properties": [
+      "thermodynamic temperature",
+      "temperature interval"
+    ],
+    "om": {
+      "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/kelvin",
+      "label": "kelvin",
+      "definition": null
+    },
+    "uo": {
+      "uri": "http://purl.obolibrary.org/obo/UO_0000012",
+      "curie": "UO:0000012",
+      "label": "kelvin",
+      "definition": "A thermodynamic temperature unit which is equal to the fraction 1/273.16 of the thermodynamic temperature of the triple point of water."
+    },
+    "ucum_code": "K",
+    "sources": {
+      "bioportal_uo_csv": "resource/bioportal/units_of_measure_ontology/UO.csv",
+      "om_ucum_ttl": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2-ucum.ttl",
+      "om_rdf": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2.0.rdf"
+    }
+  },
+  {
+    "unit": "mole",
+    "dataset_properties": [
+      "amount of substance"
+    ],
+    "om": {
+      "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/mole",
+      "label": "mole",
+      "definition": null
+    },
+    "uo": {
+      "uri": "http://purl.obolibrary.org/obo/UO_0000013",
+      "curie": "UO:0000013",
+      "label": "mole",
+      "definition": "A substance unit which is equal to the amount of substance of a molecular system which contains as many elementary entities as there are atoms in 0.012 kilogram of carbon 12."
+    },
+    "ucum_code": "mol",
+    "sources": {
+      "bioportal_uo_csv": "resource/bioportal/units_of_measure_ontology/UO.csv",
+      "om_ucum_ttl": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2-ucum.ttl",
+      "om_rdf": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2.0.rdf"
+    }
+  },
+  {
+    "unit": "candela",
+    "dataset_properties": [
+      "luminous intensity"
+    ],
+    "om": {
+      "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/candela",
+      "label": "candela",
+      "definition": null
+    },
+    "uo": {
+      "uri": "http://purl.obolibrary.org/obo/UO_0000014",
+      "curie": "UO:0000014",
+      "label": "candela",
+      "definition": "A luminous intensity unit which equal to the luminous intensity, in a given direction, of a source that emits monochromatic radiation of frequency 540 x 1012 hertz and that has a radiant intensity in that direction of 1/683 watt per steradian."
+    },
+    "ucum_code": "cd",
+    "sources": {
+      "bioportal_uo_csv": "resource/bioportal/units_of_measure_ontology/UO.csv",
+      "om_ucum_ttl": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2-ucum.ttl",
+      "om_rdf": "/Users/duncanscott/git-hub/HajoRijgersberg/OM/om-2.0.rdf"
+    }
+  }
+]

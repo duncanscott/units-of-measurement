@@ -1812,9 +1812,6 @@
     "conversion_factor": 6.62607015e-34,
     "reference_unit": "joule second",
     "system": "other",
-    "external_ids": {
-      "ucum": "h"
-    },
     "ontology_metadata": {
       "om": {
         "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/Height",
@@ -3222,9 +3219,6 @@
     "conversion_factor": 0.017453292519943295,
     "reference_unit": "radian second",
     "system": "other",
-    "external_ids": {
-      "ucum": "s"
-    },
     "ontology_metadata": {
       "om": {
         "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/Area",
@@ -28949,16 +28943,7 @@
     },
     "conversion_factor": 1.0,
     "reference_unit": "kilogram per meter",
-    "system": "SI",
-    "external_ids": {
-      "uo": "UO:0000184"
-    },
-    "ontology_metadata": {
-      "uo": {
-        "label": "kilogram per meter",
-        "definition": "An area density unit which is equal to the mass of an object in kilograms divided by one meter."
-      }
-    }
+    "system": "SI"
   },
   {
     "unit": "ounce per foot",
@@ -36694,9 +36679,6 @@
     "conversion_factor": 9.999999999999999e-06,
     "reference_unit": "kilogram per cubic meter",
     "system": "other",
-    "external_ids": {
-      "uo": "UO:0010068"
-    },
     "ontology_metadata": {
       "om": {
         "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerDecilitre",
@@ -36720,9 +36702,6 @@
     "conversion_factor": 9.999999999999997e-07,
     "reference_unit": "kilogram per cubic meter",
     "system": "other",
-    "external_ids": {
-      "uo": "UO:0000301"
-    },
     "ontology_metadata": {
       "om": {
         "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/microgramPerLitre",
@@ -36746,9 +36725,6 @@
     "conversion_factor": 0.0009999999999999998,
     "reference_unit": "kilogram per cubic meter",
     "system": "other",
-    "external_ids": {
-      "uo": "UO:0000274"
-    },
     "ontology_metadata": {
       "om": {
         "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerMillilitre",
@@ -36810,16 +36786,7 @@
     },
     "conversion_factor": 0.009999999999999998,
     "reference_unit": "kilogram per cubic meter",
-    "system": "other",
-    "external_ids": {
-      "uo": "UO:0010067"
-    },
-    "ontology_metadata": {
-      "uo": {
-        "label": "milligram per deciliter",
-        "definition": "A mass unit density which is equal to mass of an object in milligrams divided by the volume in deciliters."
-      }
-    }
+    "system": "other"
   },
   {
     "unit": "milligram per liter",
@@ -36862,16 +36829,7 @@
     },
     "conversion_factor": 1.0,
     "reference_unit": "kilogram per cubic meter",
-    "system": "other",
-    "external_ids": {
-      "uo": "UO:0000176"
-    },
-    "ontology_metadata": {
-      "uo": {
-        "label": "milligram per milliliter",
-        "definition": "A mass unit density which is equal to mass of an object in milligrams divided by the volume in milliliters."
-      }
-    }
+    "system": "other"
   },
   {
     "unit": "nanogram per cubic decimeter",
@@ -36962,16 +36920,7 @@
     },
     "conversion_factor": 1e-06,
     "reference_unit": "kilogram per cubic meter",
-    "system": "other",
-    "external_ids": {
-      "uo": "UO:0000275"
-    },
-    "ontology_metadata": {
-      "uo": {
-        "label": "nanogram per milliliter",
-        "definition": "A mass unit density which is equal to mass of an object in nanograms divided by the volume in milliliters."
-      }
-    }
+    "system": "other"
   },
   {
     "unit": "petagram per cubic meter",
@@ -37078,16 +37027,7 @@
     },
     "conversion_factor": 1e-09,
     "reference_unit": "kilogram per cubic meter",
-    "system": "other",
-    "external_ids": {
-      "uo": "UO:0010070"
-    },
-    "ontology_metadata": {
-      "uo": {
-        "label": "picogram per milliliter",
-        "definition": "A gram per milliliter unit which is equal to one picogram per one milliliter."
-      }
-    }
+    "system": "other"
   },
   {
     "unit": "teragram per cubic meter",
@@ -39662,9 +39602,6 @@
     "conversion_factor": 0.001,
     "reference_unit": "mole per cubic meter",
     "system": "SI",
-    "external_ids": {
-      "uo": "UO:0010003"
-    },
     "ontology_metadata": {
       "om": {
         "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/micromolePerLitre",
@@ -47281,16 +47218,7 @@
     },
     "conversion_factor": 37000000.0,
     "reference_unit": "becquerel",
-    "system": "other",
-    "external_ids": {
-      "uo": "UO:0000145"
-    },
-    "ontology_metadata": {
-      "uo": {
-        "label": "millicurie",
-        "definition": "An activity (of a radionuclide) unit which is equal to one thousandth of a curie or 10^[-3] Ci."
-      }
-    }
+    "system": "other"
   },
   {
     "unit": "nanobecquerel",
@@ -53584,9 +53512,6 @@
     "conversion_factor": 1.0,
     "reference_unit": "watt per meter kelvin",
     "system": "SI",
-    "external_ids": {
-      "uo": "UO:0000265"
-    },
     "ontology_metadata": {
       "om": {
         "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/wattPerMetreKelvin",
@@ -58393,18 +58318,7 @@
     },
     "conversion_factor": 0.0002365882,
     "reference_unit": "cubic meter",
-    "system": "Imperial",
-    "external_ids": {
-      "ucum": "[cup_m]"
-    },
-    "ontology_metadata": {
-      "om": {
-        "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/cup",
-        "label": "cup",
-        "definition": null,
-        "ucum_code": "[cup_m]"
-      }
-    }
+    "system": "Imperial"
   },
   {
     "unit": "cyathus",

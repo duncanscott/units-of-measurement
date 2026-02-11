@@ -1,0 +1,2 @@
+picogram metadata: {'uo': {'label': 'picogram per milliliter', 'definition': 'A gram per milliliter unit which is equal to one picogram per one milliliter.'}}
+millicurie metadata: {'uo': {'label': 'millicurie', 'definition': 'An activity (of a radionuclide) unit which is equal to one thousandth of a curie or 10^[-3] Ci.'}}

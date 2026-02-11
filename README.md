@@ -163,6 +163,24 @@ jq -c '.[] | select(.property == "length" and .system == "Imperial")' json/units
 
 # Query JSONL with jq
 jq -c 'select(.property == "length" and .system == "Imperial")' jsonl/units_of_measurement.jsonl
+
+### Focused Lists
+
+`jsonl/units_of_measurement.jsonl` is the single source of truth, but you can build smaller slices directly from it by running:
+
+```sh
+python3 scripts/generate_focused_lists.py
+```
+
+This script reads the canonical JSONL and filters it into `jsonl/focused/`:
+
+- `si_base_units.jsonl` keeps the eight SI base (and interval) units by checking the existing `property`/`unit` fields (e.g., `(length, meter)`).
+- `property_summary.jsonl` aggregates counts per `property`, listing the observed `system` and `reference_unit` values and tallying how many entries already have `external_ids`.
+- `biomedical_units.jsonl` includes any record that already carries a UO CURIE or a UCUM+OM pairing; no separate metadata files are required because it reuses `external_ids` and `ontology_metadata`.
+- `uo_units.jsonl` lists every unit with a Unit Ontology identifier (pulled from `external_ids.uo`), along with the stored UO label/definition.
+- `ucum_units.jsonl` lists every unit with a UCUM code (from `external_ids.ucum`) and includes the associated OM metadata so you can track the UCUM source.
+
+Because each subset is derived purely from the fields in the canonical JSONL, re-running the script after any data change keeps the focused lists in sync without maintaining additional sources.
 ```
 
 ## Data Sources

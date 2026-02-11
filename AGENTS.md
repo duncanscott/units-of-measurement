@@ -1,63 +1,33 @@
 # Repository Guidelines
 
-Use this guide to keep `units-of-measurement` changes consistent, verifiable, and easy to review.
-
 ## Project Structure & Module Organization
-`jsonl/` is the authoritative source (JSON Lines, one object per unit). `json/` mirrors the same data as arrays for consumers that read whole files. `units_of_measurement/` exposes the Python loader backed by `jsonl/` or the packaged `data/` copy, while `index.js` and `index.mjs` implement the CommonJS and ESM entry points. Use `dist/` only for local release tests; legal notices stay in `LICENSE` and `THIRD-PARTY-LICENSES`.
+- `jsonl/units_of_measurement.jsonl` is the canonical dataset; `json/` stores array mirrors and must stay in sync during refreshes.
+- `index.js` (CommonJS) and `index.mjs` (ESM) expose `load(dataset)` backed by `jsonl/`. The Python module under `units_of_measurement/` mirrors that helper and falls back to the repo data when bundled files are absent.
+- `scripts/` houses maintenance tooling. Keep new generators or scrapers here beside `validate_uom.py` so provenance lives in git.
 
 ## Build, Test, and Development Commands
-- `python -m pip install -e .` keeps the Python loader editable so `from units_of_measurement import load` reflects local JSON edits.
-- `python -m build` (Hatchling) builds the wheel/sdist; confirm `units_of_measurement/data/*.jsonl` is bundled before releasing.
-- `npm pack` packages the Node entry points with `jsonl/` exactly as npm will ship.
-- `node -e "console.log(require('./index.js').load('uom').length)"` is the quick smoke test (expect `2660`); rerun after any data edit.
+- `python -m pip install -e .` – install the Python package in editable mode for notebooks, scripts, and validator runs.
+- `python scripts/validate_uom.py` – mandatory before committing dataset or schema changes; it checks uniqueness, field presence, and allowed measurement systems.
+- `node -e "console.log(require('./index').load().length)"` – smoke test confirming the Node entry point can read the merged dataset.
+- `python -m build` – create wheel and sdist artifacts (requires `build` + `hatchling`); inspect `dist/` before tagging.
 
 ## Coding Style & Naming Conventions
-Python modules target 3.9+, use 4-space indentation, and limit dependencies to the standard library (Pathlib + json). JavaScript keeps `'use strict'`, semicolons, and only core modules; expose a single `load` function that mirrors the Python signature. JSON/JSONL files keep lowercase snake_case keys exactly as documented in `README.md`.
+- Python scripts use 4-space indentation, f-strings, and standard-library dependencies only; annotate helpers with hints such as `list[dict]` and `Path`.
+- JavaScript modules keep `'use strict'`, rely on `const`, and throw descriptive errors for unsupported dataset names.
+- Dataset rows must keep `quantity === property`, use `·`/`/` delimiters instead of spaces, respect the measurement-system enum in `scripts/validate_uom.py`, and include a trailing newline.
 
 ## Testing Guidelines
-No formal test suite exists, so every change must be paired with deterministic validation. Confirm record counts with the snippet below, then extend it with assertions required by your update.
-
-```sh
-python - <<'PY'
-from units_of_measurement import load
-assert len(load()) == 2959
-assert len(load("si_units")) == 812
-assert len(load("uom")) == 2660
-PY
-```
-
-## Data Validation, Naming Normalization, and Dimensions
-
-When editing unit records or adding new units, prefer improvements that make the dataset verifiable, unambiguous, and machine-safe.
-
-### 1) Keep a deterministic validation script in-repo
-Add/maintain a small script (e.g., `scripts/validate_uom.py`) that runs locally and in CI. It should:
-- Parse all JSONL files and fail fast on JSON errors / duplicate keys / missing required fields.
-- Verify record counts for the exported datasets (`load()`, `load("si_units")`, `load("uom")`) and any other published subsets.
-- Verify conversion integrity: `conversion_factor` is numeric and positive, `reference_unit` exists, and the unit/reference pair matches the intended quantity family (or dimension, if present).
-- Run cheap sanity checks for common pitfalls (e.g., SI prefixes scaling, inch/foot/yard/mile constants, kg vs g scaling).
-- Ensure JSONL formatting stays newline-terminated UTF-8 and that `json/` mirrors `jsonl/` if the project keeps both in sync.
-
-### 2) Normalize naming conventions (canonical unit strings)
-Avoid relying on spaces that humans interpret but machines cannot. Prefer a single canonical representation for unit names and symbols:
-- Use `·` for multiplication and `/` for division in compound unit names (e.g., `meter·second`, `kilometer/hour`), rather than bare spaces.
-- Use singular unit names (e.g., `meter`, not `meters`).
-- Prefer explicit prefix/base decomposition when relevant (e.g., store `prefix` + `base_unit` or ensure it can be derived deterministically).
-- Keep `symbol` consistent (Unicode) and optionally provide ASCII alternatives (e.g., `µs` plus `us`) for CLI/search compatibility.
-- Treat canonical `unit` strings as stable identifiers; store variants as aliases if needed instead of duplicating records.
-
-### 3) Propose a dimension-aware extension (ISO / NIST compatible language)
-Optionally extend each record with fields that align with how ISO/IEC 80000 and NIST SP 811 describe quantities and units:
-- `quantity`: the kind of quantity (e.g., `length`, `mass`, `time`, `velocity`, `absement`).
-- `dimension`: a base-quantity exponent map (e.g., `{ "L": 1, "T": -1 }` for velocity; `{ "L": 1, "T": 1 }` for absement).
-This enables:
-- Preventing invalid conversions by requiring identical `dimension` vectors (or explicit equivalence rules).
-- Catching ambiguities like product vs ratio (`km·h` vs `km/h`) without heuristics.
-- Future-proofing derived quantities while keeping the schema minimal and standards-aligned.
-
+- Treat the validator as the regression gate; resolve any non-zero exit and include its success output in PRs that touch data.
+- Spot-check numerical edits with `jq` or Python snippets (`jq -c 'select(.unit=="pound")' jsonl/units_of_measurement.jsonl`) and document intentional conversion-factor changes.
+- When altering loader code, exercise both APIs (`python - <<'PY'` to import `units_of_measurement.load()` plus the Node one-liner) to confirm matching record counts.
 
 ## Commit & Pull Request Guidelines
-Recent commits use short, descriptive, present-tense summaries (`updated README`, `bump version to 1.1.0`); do the same, referencing affected datasets and the validation commands you ran (Python snippet + Node smoke test). PRs should link issues, list touched `jsonl/` or `json/` files, and call out downstream impacts.
+- Follow the existing history style: concise, present-tense subjects such as `add canonical metadata docs` or `bump version to 1.2.1`, limited to ~70 characters.
+- Commit bodies should list affected files, context, and sources. When editing datasets, include validator output or the jq snippets you ran.
+- Pull requests must outline scope, flag schema additions, link to upstream references, and include before/after record counts when they change.
 
-## Data Integrity & Release Tips
-Preserve JSON Lines formatting (UTF-8, newline-terminated, no extra commas) so streaming loaders continue working. When units or conversion factors change, update both JSON and JSONL directories, keep counts in sync with the snippet above, bump `__version__` plus `package.json` together, and keep generated archives in `dist/` out of git.
+## Data Stewardship Tips
+- Update `README.md` and `THIRD-PARTY-LICENSES` when pulling in new upstream datasets or measurement systems.
+- Keep `json/` and `jsonl/` synchronized in the same commit, and ensure any regeneration script or notebook used to produce them is versioned under `scripts/` for reproducibility.
+- For ontology work, run `scripts/annotate_with_ontologies.py` (produces `jsonl/units_with_ontologies.jsonl`) followed by `scripts/apply_ontology_annotations.py` to refresh the canonical dataset, and `scripts/validate_ontology_annotations.py` to confirm coverage/property synonyms before shipping.
+- `scripts/generate_focused_lists.py` creates filtered views (`si_base_units`, `property_summary`, `biomedical_units`, `uo_units`, `ucum_units`) under `jsonl/focused/`; rerun after any data edit, then mirror the JSONL files into arrays with `scripts/convert_jsonl_to_json.py` so `json/` stays in lockstep.
