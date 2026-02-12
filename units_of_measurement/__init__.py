@@ -1,9 +1,9 @@
-"""Units of measurement dataset — 121 physical quantities, 11 measurement systems."""
+"""Units of measurement dataset — 138 physical quantities, 11 measurement systems."""
 
 import json
 from pathlib import Path
 
-__version__ = "1.3.0"
+__version__ = "1.4.0"
 
 _PKG_DIR = Path(__file__).resolve().parent
 _DATA_DIR = _PKG_DIR / "data"
