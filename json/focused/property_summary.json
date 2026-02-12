@@ -1369,7 +1369,8 @@
       "SI"
     ],
     "reference_units": [
-      "watt per hertz"
+      "watt per hertz",
+      "watt per meter"
     ],
     "annotated_records": 0
   },

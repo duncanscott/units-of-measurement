@@ -1612,7 +1612,7 @@
     "property": "areal mass density",
     "symbol": "kg/ha",
     "system": "Metric",
-    "ucum_code": "kg/[acr_us]",
+    "ucum_code": "kg/har",
     "om_metadata": {
       "uri": "http://www.ontology-of-units-of-measure.org/resource/om-2/kilogramPerHectare",
       "label": "kilogram per hectare",

@@ -270,8 +270,8 @@ TIER_2 = [
     rec(
         "watt per nanometer", "watt/nanometer", None, "W/nm",
         "watts per nanometer",
-        "spectral power", {"M": 1, "L": 2, "T": -2}, 1e9,
-        "watt per hertz", "SI",
+        "spectral power", {"M": 1, "L": 1, "T": -3}, 1e9,
+        "watt per meter", "SI",
         "wattPerNanometre", "watt per nanometre", None,
     ),
     rec(
@@ -311,7 +311,7 @@ TIER_2 = [
         "areal mass density", {"M": 1, "L": -2}, 1e-4,
         "kilogram per square meter", "Metric",
         "kilogramPerHectare", "kilogram per hectare", None,
-        external_ids={"ucum": "kg/[acr_us]"},
+        external_ids={"ucum": "kg/har"},
     ),
     rec(
         "tonne per hectare", "tonne/hectare", None, "t/ha",

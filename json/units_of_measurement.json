@@ -5567,7 +5567,7 @@
     "reference_unit": "kilogram per square meter",
     "system": "Metric",
     "external_ids": {
-      "ucum": "kg/[acr_us]"
+      "ucum": "kg/har"
     },
     "ontology_metadata": {
       "om": {
@@ -51829,11 +51829,11 @@
     "quantity": "spectral power",
     "dimension": {
       "M": 1,
-      "L": 2,
-      "T": -2
+      "L": 1,
+      "T": -3
     },
     "conversion_factor": 1000000000.0,
-    "reference_unit": "watt per hertz",
+    "reference_unit": "watt per meter",
     "system": "SI",
     "ontology_metadata": {
       "om": {

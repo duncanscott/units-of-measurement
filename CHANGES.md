@@ -7,16 +7,16 @@
 Added 70 new units sourced from the [Ontology of units of Measure (OM) 2.0](https://github.com/HajoRijgersberg/OM), expanding the canonical dataset from 2,958 to 3,028 records and from 121 to 138 physical quantities.
 
 **Tier 1 — Singular/base units (20):**
-angstrom, barye, biot, British thermal unit (thermochemical), calorie (thermochemical), cicero, darcy, decibar, dessertspoon, furlong, jansky, kayser, meter of mercury, minute (sidereal), month, pint (imperial), quart (imperial), rem, rhe, week
+angstrom, barye, biot, British thermal unit (thermochemical), calorie (thermochemical), darcy, dessertspoon, furlong, jansky, kayser, meter of mercury, minute (sidereal), month, pint (imperial), quart (imperial), rem, rhe, stattesla, statweber, week
 
 **Tier 2 — Derived/quotient units (28):**
-ampere per watt, centimeter per day, coulomb per kilogram, degree Celsius per hour/minute/second, gram per kilogram, gray per second, joule per cubic meter, kilogram per hectare, liter per 100 kilometer, liter per hour, liter per kilogram, liter per mole, lumen per square meter, lumen per watt, meter per day, meter per minute, milligram per kilogram, milligray per second, millimeter per day, millimeter per hour, nautical mile per hour, tonne per hectare, watt per hertz, watt per nanometer, watt per square meter steradian, watt per steradian
+coulomb per kilogram, gray per second, milligray per second, joule per cubic meter, lumen per watt, lumen per square meter, watt per steradian, watt per hertz, watt per nanometer, watt per square meter steradian, ampere per watt, gram per kilogram, milligram per kilogram, kilogram per hectare, tonne per hectare, liter per 100 kilometer, liter per hour, liter per kilogram, liter per mole, millimeter per day, millimeter per hour, meter per day, meter per minute, centimeter per day, degree Celsius per second, degree Celsius per minute, degree Celsius per hour, nautical mile per hour
 
 **Tier 3 — Reciprocal/exponentiated units (7):**
 reciprocal cubic meter, reciprocal day, reciprocal hour, reciprocal minute, reciprocal second, reciprocal year, second squared
 
 **Tier 4 — Domain-specific units (15):**
-dozen, gigaparsec, gigayear, gross, half dozen, hundred count, kiloparsec, magnitude, megaparsec, micromagnitude, millimagnitude, millisecond of arc, stattesla, statweber, thousand piece
+dozen, gigaparsec, gigayear, gross, half dozen, hundred count, kiloparsec, magnitude, megaparsec, micromagnitude, millimagnitude, millisecond of arc, thousand piece, cicero, decibar
 
 **New physical quantities (17):**
 absorbed dose rate, energy density, exposure, fluidity, fuel consumption, luminous efficacy, luminous emittance, mass fraction, permeability, radiant intensity, responsivity, spectral flux density, spectral power, spectral radiance, stellar brightness, temperature rate, time squared
@@ -28,6 +28,12 @@ All new records include `ontology_metadata.om` with OM URIs, labels, and definit
 - `property_summary.jsonl` — 121 → 138 properties
 - `biomedical_units.jsonl` — 1,060 → 1,088 records
 - `ucum_units.jsonl` — 1,020 → 1,048 records
+
+### Fixes
+
+- `watt per nanometer` now models wavelength-based spectral power correctly (dimension `{M:1,L:1,T:-3}` referenced to `watt per meter`), fixing the earlier misuse of the frequency-based reference unit.
+- `kilogram per hectare` carries the UCUM identifier `kg/har` instead of the acre code.
+- Tier lists above now match the actual generator/data breakdown most recently added from OM.
 
 ---
 

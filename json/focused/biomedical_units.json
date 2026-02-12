@@ -2224,7 +2224,7 @@
     "symbol": "kg/ha",
     "system": "Metric",
     "external_ids": {
-      "ucum": "kg/[acr_us]"
+      "ucum": "kg/har"
     },
     "ontology_metadata": {
       "om": {

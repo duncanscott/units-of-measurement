@@ -112,7 +112,7 @@
 {"property": "specific radioactivity", "count": 3, "systems": ["SI", "other"], "reference_units": ["becquerel per kilogram"], "annotated_records": 0}
 {"property": "specific volume", "count": 52, "systems": ["Metric", "SI", "other"], "reference_units": ["cubic meter per kilogram"], "annotated_records": 1}
 {"property": "spectral flux density", "count": 1, "systems": ["Astronomical"], "reference_units": ["watt per square meter hertz"], "annotated_records": 0}
-{"property": "spectral power", "count": 2, "systems": ["SI"], "reference_units": ["watt per hertz"], "annotated_records": 0}
+{"property": "spectral power", "count": 2, "systems": ["SI"], "reference_units": ["watt per hertz", "watt per meter"], "annotated_records": 0}
 {"property": "spectral radiance", "count": 1, "systems": ["SI"], "reference_units": ["watt per square meter steradian"], "annotated_records": 1}
 {"property": "stellar brightness", "count": 3, "systems": ["Astronomical"], "reference_units": ["magnitude"], "annotated_records": 0}
 {"property": "surface electric current density", "count": 4, "systems": ["SI"], "reference_units": ["ampere per meter"], "annotated_records": 1}
