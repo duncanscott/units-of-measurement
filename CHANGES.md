@@ -1,5 +1,36 @@
 # Changelog
 
+## Unreleased
+
+### OM Ontology Unit Expansion
+
+Added 70 new units sourced from the [Ontology of units of Measure (OM) 2.0](https://github.com/HajoRijgersberg/OM), expanding the canonical dataset from 2,958 to 3,028 records and from 121 to 138 physical quantities.
+
+**Tier 1 — Singular/base units (20):**
+angstrom, barye, biot, British thermal unit (thermochemical), calorie (thermochemical), cicero, darcy, decibar, dessertspoon, furlong, jansky, kayser, meter of mercury, minute (sidereal), month, pint (imperial), quart (imperial), rem, rhe, week
+
+**Tier 2 — Derived/quotient units (28):**
+ampere per watt, centimeter per day, coulomb per kilogram, degree Celsius per hour/minute/second, gram per kilogram, gray per second, joule per cubic meter, kilogram per hectare, liter per 100 kilometer, liter per hour, liter per kilogram, liter per mole, lumen per square meter, lumen per watt, meter per day, meter per minute, milligram per kilogram, milligray per second, millimeter per day, millimeter per hour, nautical mile per hour, tonne per hectare, watt per hertz, watt per nanometer, watt per square meter steradian, watt per steradian
+
+**Tier 3 — Reciprocal/exponentiated units (7):**
+reciprocal cubic meter, reciprocal day, reciprocal hour, reciprocal minute, reciprocal second, reciprocal year, second squared
+
+**Tier 4 — Domain-specific units (15):**
+dozen, gigaparsec, gigayear, gross, half dozen, hundred count, kiloparsec, magnitude, megaparsec, micromagnitude, millimagnitude, millisecond of arc, stattesla, statweber, thousand piece
+
+**New physical quantities (17):**
+absorbed dose rate, energy density, exposure, fluidity, fuel consumption, luminous efficacy, luminous emittance, mass fraction, permeability, radiant intensity, responsivity, spectral flux density, spectral power, spectral radiance, stellar brightness, temperature rate, time squared
+
+All new records include `ontology_metadata.om` with OM URIs, labels, and definitions. Many also include `external_ids.ucum` codes.
+
+### Focused Lists Updated
+
+- `property_summary.jsonl` — 121 → 138 properties
+- `biomedical_units.jsonl` — 1,060 → 1,088 records
+- `ucum_units.jsonl` — 1,020 → 1,048 records
+
+---
+
 ## v1.3.0
 
 ### Ontology Annotations

@@ -1,6 +1,6 @@
 # Units of Measurement
 
-A comprehensive collection of units of measurement covering 121 physical quantities and 11 measurement systems. Available in both JSON and JSONL formats.
+A comprehensive collection of units of measurement covering 138 physical quantities and 11 measurement systems. Available in both JSON and JSONL formats.
 
 ## Files
 
